@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arjit Bhatnagar - Software & AI/ML Engineer Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.55;
+      padding: 35px 15px;
+    }
+
+    .resume-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 42px 48px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e2e8f0;
+    }
+
+    .action-bar {
+      text-align: right;
+      margin-bottom: 16px;
+    }
+
+    .print-btn {
+      background-color: #ffffff;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .print-btn:hover {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    header {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    h1.name {
+      font-size: 30px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      margin-bottom: 3px;
+    }
+
+    .headline {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2563eb;
+      margin-bottom: 10px;
+    }
+
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .contact-list a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-list a:hover {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0f172a;
+      border-bottom: 1px solid #cbd5e1;
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    p.summary {
+      font-size: 13.5px;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    .entry {
+      margin-bottom: 16px;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .entry-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .entry-company {
+      font-weight: 600;
+      color: #2563eb;
+    }
+
+    .entry-date {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .entry-location {
+      font-size: 12.5px;
+      color: #64748b;
+      margin-bottom: 5px;
+    }
+
+    ul.entry-bullets {
+      padding-left: 18px;
+      font-size: 13px;
+      color: #334155;
+      margin-top: 4px;
+    }
+
+    ul.entry-bullets li {
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+
+    .skills-group {
+      margin-bottom: 8px;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .skills-group strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    .skills-group span {
+      color: #334155;
+    }
+
+    .project-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 13px 15px;
+      margin-bottom: 13px;
+      background: #fafafa;
+    }
+
+    .project-box:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .project-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .project-action-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-btn-link {
+      display: inline-flex;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .project-btn-live {
+      background: #2563eb;
+      color: #ffffff !important;
+    }
+
+    .project-btn-live:hover {
+      background: #1d4ed8;
+    }
+
+    .project-btn-code {
+      background: #ffffff;
+      color: #334155 !important;
+      border: 1px solid #cbd5e1;
+    }
+
+    .project-btn-code:hover {
+      background: #f1f5f9;
+    }
+
+    .project-badge {
+      font-size: 11px;
+      font-weight: 600;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: #475569;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .tag {
+      background: #e2e8f0;
+      color: #334155;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .resume-wrapper {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+      }
+      .action-bar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .resume-wrapper {
+        padding: 24px 16px;
+      }
+      h1.name {
+        font-size: 24px;
+      }
+      .contact-list {
+        flex-direction: column;
+        gap: 5px;
+      }
+      .entry-header {
+        flex-direction: column;
+      }
+      .project-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-wrapper">
+    
+    <!-- Action Bar -->
+    <div class="action-bar">
+      <button class="print-btn" onclick="window.print()">
+        🖨️ Print / Save PDF
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header>
+      <h1 class="name">Arjit Bhatnagar</h1>
+      <div class="headline">AI/ML & Python Backend Developer | Generative AI & FastAPI Engineer</div>
+      
+      <div class="contact-list">
+        <span>📍 Bareilly, Uttar Pradesh, India</span>
+        <span>✉️ <a href="mailto:arjitbhatnagar3@gmail.com">arjitbhatnagar3@gmail.com</a></span>
+        <span>📞 <a href="tel:+918354069981">+91 8354069981</a></span>
+        <span>🔗 <a href="https://github.com/arjitbhatnagar3-hue" target="_blank">github.com/arjitbhatnagar3-hue</a></span>
+        <span>🔗 <a href="https://www.linkedin.com/in/arjit-bhatnagar-7024b83b8" target="_blank">linkedin.com/in/arjit-bhatnagar</a></span>
+      </div>
+    </header>
+
+    <!-- Summary -->
+    <section>
+      <h2 class="section-title">Professional Summary</h2>
+      <p class="summary">
+        Software Engineer specializing in <strong>AI/ML systems, Generative AI (RAG & LLM Agents), and scalable backend architectures</strong>. Proficient in engineering asynchronous microservices with <strong>FastAPI, Django, and PostgreSQL</strong>, as well as developing vector-driven pipelines using <strong>LangChain, PyTorch, and Scikit-Learn</strong>. Proven track record of reducing API query latency by 35%+ and implementing production-grade ML inference pipelines.
+      </p>
+    </section>
+
+    <!-- Work Experience -->
+    <section>
+      <h2 class="section-title">Work Experience</h2>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Web Development & Backend Intern</span> &ndash; 
+            <span class="entry-company">Eway Financial Consultancy</span>
+          </div>
+          <span class="entry-date">Jul 2026 &ndash; Present</span>
+        </div>
+        <div class="entry-location">Lucknow, Uttar Pradesh, India &bull; On-site</div>
+        <ul class="entry-bullets">
+          <li>Architected and deployed <strong>12+ high-throughput RESTful API endpoints</strong> using <strong>FastAPI and Python</strong>, decreasing average server response times by <strong>35%</strong>.</li>
+          <li>Optimized relational database queries in <strong>PostgreSQL and SQL</strong>, ensuring efficient indexing and data retrieval across <strong>50,000+ transactional records</strong>.</li>
+          <li>Automated financial data pipelines utilizing <strong>Pandas and NumPy</strong>, eliminating manual reporting overhead by <strong>40%</strong>.</li>
+          <li>Integrated frontend components using <strong>JavaScript, HTML5, and CSS3</strong> with backend authentication and role-based access controls.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Generative AI Engineer Intern</span> &ndash; 
+            <span class="entry-company">SkillSpardha</span>
+          </div>
+          <span class="entry-date">Jun 2026 &ndash; Jul 2026</span>
+        </div>
+        <div class="entry-location">Noida, Uttar Pradesh, India &bull; On-site</div>
+        <ul class="entry-bullets">
+          <li>Engineered end-to-end <strong>Retrieval-Augmented Generation (RAG)</strong> systems with <strong>LangChain and PyTorch</strong>, achieving <strong>92%+ semantic retrieval accuracy</strong>.</li>
+          <li>Structured document chunking, tokenization, and vector indexing into <strong>Vector Databases (FAISS / ChromaDB)</strong> over 2,000+ unstructured text files.</li>
+          <li>Implemented dynamic prompt engineering and few-shot templates, reducing LLM hallucination rates by <strong>28%</strong> and retrieval latency to <strong><250ms</strong>.</li>
+          <li>Preprocessed large multimodal datasets and benchmarked machine learning classification models using <strong>Scikit-Learn and NumPy</strong>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+      <h2 class="section-title">Technical Projects</h2>
+
+      <!-- Project 1: Movie Recommendation Engine -->
+      <div class="project-box">
+        <div class="project-top">
+          <span class="project-name">🎬 Movie Recommendation Engine &ndash; Asynchronous ML API</span>
+          <div class="project-action-links">
+            <a href="https://lnkd.in/g35339X8" target="_blank" class="project-btn-link project-btn-live">⚡ Live Demo ↗</a>
+            <a href="https://github.com/arjitbhatnagar3-hue/movie_recommendation_project/tree/merged-fastapi" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          Built and deployed a real-time collaborative and content-based recommendation model processing <strong>10,000+ title vectors</strong> via Cosine Similarity. Integrated with an asynchronous <strong>FastAPI backend</strong> delivering sub-150ms recommendation inference.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">FastAPI</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Python</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">Production Deployment</span>
+        </div>
+      </div>
+
+      <!-- Project 2: Medical Chatbot RAG -->
+      <div class="project-box">
+        <div class="project-top">
+          <span class="project-name">🩺 Medical Domain Chatbot &ndash; Contextual RAG System</span>
+          <div class="project-action-links">
+            <a href="https://github.com/arjitbhatnagar3-hue/medical_chatbot" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          Architected a domain-specific Q&A conversational AI utilizing <strong>LangChain and Vector Databases</strong>. Implemented contextual document retrieval to supply verified clinical documentation, cutting hallucinated medical outputs by <strong>40%</strong>.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">LangChain</span>
+          <span class="tag">RAG Architecture</span>
+          <span class="tag">Vector Databases</span>
+          <span class="tag">FastAPI / Flask</span>
+          <span class="tag">Embeddings</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+      <!-- Project 3: Meta Agent AI Automation -->
+      <div class="project-box">
+        <div class="project-top">
+          <span class="project-name">🤖 Meta Agent &ndash; Autonomous Multi-Agent AI Automation</span>
+          <div class="project-action-links">
+            <span class="project-badge">In Active Development</span>
+            <a href="https://github.com/arjitbhatnagar3-hue" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
+          </div>
+        </div>
+        <p class="project-desc">
+          Designing an autonomous multi-agent framework capable of self-reflection, tool invocation, and dynamic API execution loops, automating repetitive workflows and reducing execution runtimes by <strong>60%</strong>.
+        </p>
+        <div class="tech-tags">
+          <span class="tag">AI Automation</span>
+          <span class="tag">Multi-Agent Systems</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">Tool Calling</span>
+          <span class="tag">Python</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      
+      <div class="skills-group">
+        <strong>Languages:</strong> 
+        <span>Python, JavaScript (ES6+), SQL, HTML5, CSS3</span>
+      </div>
+
+      <div class="skills-group">
+        <strong>AI, ML & Generative AI:</strong> 
+        <span>LangChain, RAG Pipelines, Vector Databases (FAISS, ChromaDB, Pinecone), Multi-Agent Automation, PyTorch, Scikit-Learn (sklearn), NumPy, Pandas, Embeddings</span>
+      </div>
+
+      <div class="skills-group">
+        <strong>Backend & Web Frameworks:</strong> 
+        <span>FastAPI, Django, Flask, React.js, Asynchronous REST APIs, Microservices</span>
+      </div>
+
+      <div class="skills-group">
+        <strong>Databases, Tools & DevOps:</strong> 
+        <span>PostgreSQL, MySQL, Git, GitHub, Postman, CI/CD Pipelines, Docker Basics</span>
+      </div>
+
+      <div class="skills-group">
+        <strong>Core Computer Science:</strong> 
+        <span>Object-Oriented Programming (OOPs), Operating Systems (OS), Data Structures & Algorithms (DSA), System Design Basics</span>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <h2 class="section-title">Education</h2>
+      <div class="entry">
+        <div class="entry-header">
+          <div>
+            <span class="entry-title">Bachelor of Technology (B.Tech) &ndash; Computer Science & Engineering</span>
+            <div class="entry-company">Shri Ram Murti Smarak (SRMS) Institutions</div>
+          </div>
+          <span class="entry-date">Oct 2023 &ndash; Present</span>
+        </div>
+        <div class="entry-location">Bareilly, Uttar Pradesh, India</div>
+        <ul class="entry-bullets">
+          <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems, Object-Oriented Software Design, Machine Learning.</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
