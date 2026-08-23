@@ -1,539 +1,653 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arjit Bhatnagar - Software & Backend Engineer Resume</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arjit Bhatnagar — Software & Backend Engineer</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: #f8fafc;
-      color: #0f172a;
-      line-height: 1.55;
-      padding: 35px 15px;
-    }
+<style>
+  :root{
+    --bg:        #0B0906;
+    --bg-deep:   #14100A;
+    --panel:     #1A150E;
+    --ink:       #EFE6D2;
+    --ink-soft:  #B9AA8B;
+    --gold:      #D4AF37;
+    --gold-deep: #9C7A1E;
+    --gold-soft: #E8CC7A;
+    --rule:      rgba(212,175,55,0.28);
+    --crest:     #0E0B07;
+    --serif: "Playfair Display", Georgia, serif;
+    --deco:  "Cinzel", "Playfair Display", Georgia, serif;
+    --body:  "EB Garamond", Georgia, serif;
+  }
 
-    .resume-wrapper {
-      max-width: 820px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 42px 48px;
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
-      border: 1px solid #e2e8f0;
-    }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
 
-    .action-bar {
-      text-align: right;
-      margin-bottom: 16px;
-    }
+  body{
+    font-family:var(--body);
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.7;
+    font-size:19px;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
 
-    .print-btn {
-      background-color: #ffffff;
-      color: #334155;
-      border: 1px solid #cbd5e1;
-      padding: 6px 14px;
-      font-size: 13px;
-      font-weight: 600;
-      border-radius: 6px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s;
-    }
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(circle at 50% -10%, rgba(212,175,55,0.10), transparent 55%),
+      radial-gradient(circle at 85% 20%, rgba(212,175,55,0.04), transparent 45%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.006) 0 2px, transparent 2px 5px);
+  }
+  .wrap{ position:relative; z-index:1; }
 
-    .print-btn:hover {
-      background-color: #f1f5f9;
-      border-color: #94a3b8;
-    }
+  .container{ max-width:1000px; margin:0 auto; padding:0 40px; }
+  h1,h2,h3,h4{ font-weight:500; }
 
-    header {
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 18px;
-      margin-bottom: 22px;
-    }
+  .deco-rule{
+    display:flex; align-items:center; gap:18px; justify-content:center; margin:40px 0; color:var(--gold);
+  }
+  .deco-rule::before,.deco-rule::after{
+    content:""; height:1px; flex:1; max-width:150px;
+    background:linear-gradient(90deg, transparent, var(--gold));
+    box-shadow:0 0 8px rgba(212,175,55,0.35);
+  }
+  .deco-rule::after{ background:linear-gradient(90deg, var(--gold), transparent); }
+  .deco-rule .diamond{ width:10px; height:10px; background:var(--gold); transform:rotate(45deg); box-shadow:0 0 12px rgba(212,175,55,0.6); }
 
-    h1.name {
-      font-size: 30px;
-      font-weight: 800;
-      color: #0f172a;
-      letter-spacing: -0.5px;
-      margin-bottom: 3px;
-    }
+  /* NAV */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(11,9,6,0.85); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav{ max-width:1000px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between; }
+  .brand{ font-family:var(--deco); font-size:1.02rem; letter-spacing:.35em; color:var(--ink); text-decoration:none; }
+  .brand .dot{ color:var(--gold); text-shadow:0 0 10px rgba(212,175,55,0.7); }
+  nav a{
+    font-family:var(--body); font-size:.8rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+    margin-left:26px; position:relative; transition:color .25s ease;
+  }
+  nav a:hover{ color:var(--gold); text-shadow:0 0 12px rgba(212,175,55,0.5); }
+  nav a::after{
+    content:""; position:absolute; left:0; bottom:-4px; height:1px; width:0;
+    background:var(--gold); box-shadow:0 0 8px var(--gold); transition:width .3s ease;
+  }
+  nav a:hover::after{ width:100%; }
 
-    .headline {
-      font-size: 15px;
-      font-weight: 600;
-      color: #2563eb;
-      margin-bottom: 10px;
-    }
+  /* HERO */
+  .hero{ position:relative; text-align:center; padding:100px 0 40px; }
+  .hero .rays{
+    position:absolute; top:-40px; left:50%; transform:translateX(-50%);
+    width:720px; height:720px; z-index:-1; opacity:.5; pointer-events:none;
+    background:repeating-conic-gradient(from 0deg, rgba(212,175,55,0.05) 0deg 6deg, transparent 6deg 12deg);
+    -webkit-mask-image:radial-gradient(circle, black 0%, transparent 70%);
+            mask-image:radial-gradient(circle, black 0%, transparent 70%);
+  }
+  .crest{ margin-bottom:30px; }
+  .crest .ring{ fill:none; stroke:var(--gold); stroke-width:1.2; opacity:.9; filter:drop-shadow(0 0 6px rgba(212,175,55,0.5)); }
+  .crest .ring2{ fill:none; stroke:rgba(212,175,55,0.4); stroke-width:1; }
+  .crest text{ fill:var(--gold); font-family:var(--deco); filter:drop-shadow(0 0 6px rgba(212,175,55,0.6)); }
+  .monogram{
+    font-family:var(--deco); font-size:4.4rem; line-height:1;
+    letter-spacing:.14em; color:var(--ink); font-weight:600; text-transform:uppercase;
+    text-shadow:0 2px 30px rgba(212,175,55,0.25);
+  }
+  .monogram span{ color:var(--gold); text-shadow:0 0 18px rgba(212,175,55,0.55); }
+  .hero .title{
+    font-family:var(--deco); font-size:1.05rem; letter-spacing:.28em;
+    text-transform:uppercase; color:var(--gold); margin-top:20px;
+    text-shadow:0 0 14px rgba(212,175,55,0.35);
+  }
+  .hero .est{
+    margin-top:18px; font-size:.72rem; letter-spacing:.35em; text-transform:uppercase; color:var(--ink-soft);
+  }
+  .est .rule{ display:inline-block; width:36px; height:1px; background:var(--gold); vertical-align:middle; margin:0 12px; }
+  .hero-sub{ max-width:640px; margin:34px auto 0; color:var(--ink-soft); font-size:1.1rem; font-style:italic; }
+  .hero-cta{ margin-top:34px; display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    font-family:var(--deco); font-size:.78rem; letter-spacing:.22em; text-transform:uppercase;
+    padding:14px 28px; border:1px solid var(--gold); color:var(--gold); text-decoration:none;
+    background:transparent; transition:all .3s ease; cursor:pointer;
+  }
+  .btn:hover{ background:var(--gold); color:var(--bg); box-shadow:0 0 22px rgba(212,175,55,0.5); }
+  .btn.solid{ background:rgba(212,175,55,0.12); }
 
-    .contact-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      font-size: 13px;
-      color: #475569;
-    }
+  /* SECTIONS */
+  section{ padding:60px 0; }
+  .section-label{ text-align:center; font-family:var(--deco); font-size:.78rem; letter-spacing:.45em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; text-shadow:0 0 10px rgba(212,175,55,0.3); }
+  .section-title{ text-align:center; font-family:var(--deco); font-size:2.2rem; color:var(--ink); letter-spacing:.05em; margin-bottom:8px; }
+  .section-intro{ text-align:center; max-width:700px; margin:0 auto 30px; color:var(--ink-soft); font-size:1.05rem; }
 
-    .contact-list a {
-      color: #475569;
-      text-decoration: none;
-      font-weight: 500;
-    }
+  /* ABOUT */
+  .about-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center; }
+  .about-text p{ color:var(--ink-soft); margin-bottom:18px; }
+  .about-text .dropcap:first-letter{
+    float:left; font-family:var(--deco); font-size:3.4rem; line-height:.85;
+    color:var(--gold); padding-right:10px; font-weight:600; text-shadow:0 0 14px rgba(212,175,55,0.4);
+  }
+  .signature{ font-family:var(--serif); font-size:1.8rem; color:var(--gold); margin-top:8px; font-style:italic; }
+  .facts{ border-left:1px solid var(--rule); padding-left:36px; }
+  .fact{ margin-bottom:26px; }
+  .fact .k{ font-family:var(--deco); font-size:.72rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
+  .fact .v{ font-size:1.05rem; color:var(--ink); margin-top:4px; }
 
-    .contact-list a:hover {
-      color: #2563eb;
-      text-decoration: underline;
-    }
+  /* SKILLS */
+  .skill-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px 46px; }
+  .skill{ border-bottom:1px solid var(--rule); padding:14px 2px; }
+  .skill .name{ display:flex; justify-content:space-between; align-items:baseline; }
+  .skill .n{ font-family:var(--deco); font-size:1rem; color:var(--ink); letter-spacing:.04em; }
+  .skill .pct{ font-family:var(--body); font-size:.85rem; color:var(--gold); letter-spacing:.1em; }
+  .bar{ height:3px; background:rgba(212,175,55,0.15); margin-top:9px; overflow:hidden; }
+  .bar > i{ display:block; height:100%; background:linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-soft)); box-shadow:0 0 8px rgba(212,175,55,0.5); }
 
-    section {
-      margin-bottom: 22px;
-    }
+  .skill-stack{ margin-top:44px; }
+  .stack-block{ margin-bottom:22px; }
+  .stack-block .stack-k{
+    font-family:var(--deco); font-size:.74rem; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px; display:block;
+  }
+  .stack-block .stack-v{ color:var(--ink-soft); font-size:1rem; }
+  .stack-block .stack-v .chip{
+    display:inline-block; margin:4px 6px 4px 0; padding:4px 12px;
+    border:1px solid var(--rule); color:var(--gold-soft); font-family:var(--deco);
+    font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; background:rgba(212,175,55,0.05);
+  }
 
-    section:last-child {
-      margin-bottom: 0;
-    }
+  .tagline{ text-align:center; margin-top:40px; color:var(--gold); font-style:italic; }
 
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #0f172a;
-      border-bottom: 1px solid #cbd5e1;
-      padding-bottom: 4px;
-      margin-bottom: 12px;
-    }
+  /* EXPERIENCE */
+  .exp-item{
+    border:1px solid var(--rule); padding:30px 32px; margin-bottom:24px; position:relative;
+    background:linear-gradient(160deg, var(--panel), var(--bg-deep));
+    transition:border-color .3s ease, transform .3s ease;
+  }
+  .exp-item::before{
+    content:""; position:absolute; top:9px; left:9px; right:9px; bottom:9px;
+    border:1px solid rgba(212,175,55,0.18); pointer-events:none;
+  }
+  .exp-item:hover{ border-color:var(--gold); }
+  .exp-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; margin-bottom:6px; }
+  .exp-role{ font-family:var(--serif); font-size:1.25rem; color:var(--ink); }
+  .exp-role .co{ color:var(--gold); font-style:italic; }
+  .exp-date{ font-family:var(--deco); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-soft); }
+  .exp-loc{ font-family:var(--deco); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:14px; }
+  .exp-list{ list-style:none; padding:0; }
+  .exp-list li{
+    color:var(--ink-soft); font-size:.98rem; padding:6px 0 6px 24px; position:relative;
+  }
+  .exp-list li::before{
+    content:"◆"; position:absolute; left:0; top:8px; color:var(--gold); font-size:.55rem;
+  }
+  .exp-list b, .exp-list strong{ color:var(--gold-soft); font-weight:500; }
 
-    p.summary {
-      font-size: 13.5px;
-      color: #334155;
-      line-height: 1.6;
-    }
+  /* PROJECTS */
+  .proj-grid{ display:grid; grid-template-columns:1fr 1fr; gap:36px; }
+  .card{
+    background:linear-gradient(160deg, var(--panel), var(--bg-deep));
+    border:1px solid var(--rule); padding:34px 32px; position:relative;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    display:flex; flex-direction:column;
+  }
+  .card::before{
+    content:""; position:absolute; top:9px; left:9px; right:9px; bottom:9px;
+    border:1px solid rgba(212,175,55,0.25); pointer-events:none;
+  }
+  .card::after{
+    content:"◆"; position:absolute; top:14px; right:16px; color:var(--gold); font-size:.6rem; opacity:.6;
+  }
+  .card:hover{ transform:translateY(-5px); border-color:var(--gold); box-shadow:0 22px 50px -18px rgba(0,0,0,0.8), 0 0 30px -10px rgba(212,175,55,0.4); }
+  .card .cat{ font-family:var(--deco); font-size:.7rem; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); }
+  .card h3{ font-family:var(--serif); font-size:1.35rem; color:var(--ink); margin:12px 0 8px; }
+  .card p{ color:var(--ink-soft); font-size:.95rem; margin-bottom:16px; flex:1; }
+  .card p b{ color:var(--gold-soft); font-weight:500; }
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px; }
+  .tag{
+    font-family:var(--deco); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase;
+    padding:5px 10px; border:1px solid var(--rule); color:var(--gold-soft); background:rgba(212,175,55,0.06);
+  }
+  .card-links{ display:flex; gap:16px; flex-wrap:wrap; }
+  .card .link{ color:var(--gold); text-decoration:none; font-family:var(--deco); font-size:.76rem; letter-spacing:.14em; text-transform:uppercase; }
+  .card .link:hover{ text-shadow:0 0 12px rgba(212,175,55,0.6); }
+  .badge-dev{
+    display:inline-block; margin-left:auto; padding:3px 10px; border:1px solid var(--gold-soft);
+    font-family:var(--deco); font-size:.6rem; letter-spacing:.16em; color:var(--gold-soft);
+    text-transform:uppercase; background:rgba(212,175,55,0.08);
+  }
 
-    .entry {
-      margin-bottom: 16px;
-    }
+  /* EDUCATION */
+  .edu-card{
+    max-width:760px; margin:0 auto;
+    border:1px solid var(--rule); padding:34px 36px; position:relative;
+    background:linear-gradient(160deg, var(--panel), var(--bg-deep));
+  }
+  .edu-card::before{
+    content:""; position:absolute; top:9px; left:9px; right:9px; bottom:9px;
+    border:1px solid rgba(212,175,55,0.25); pointer-events:none;
+  }
+  .edu-head{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; }
+  .edu-degree{ font-family:var(--serif); font-size:1.2rem; color:var(--ink); }
+  .edu-inst{ font-family:var(--deco); font-size:.78rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); margin-top:6px; }
+  .edu-date{ font-family:var(--deco); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-soft); }
+  .edu-loc{ font-family:var(--deco); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft); margin:8px 0 14px; }
+  .edu-card p{ color:var(--ink-soft); font-size:.98rem; }
+  .edu-card p b{ color:var(--gold-soft); font-weight:500; }
 
-    .entry:last-child {
-      margin-bottom: 0;
-    }
+  /* CONTACT */
+  .contact-card{
+    max-width:760px; margin:0 auto; text-align:center;
+    border:1px solid var(--rule); padding:54px 40px; position:relative;
+    background:linear-gradient(160deg, var(--panel), var(--bg-deep));
+  }
+  .contact-card::before{
+    content:""; position:absolute; top:9px; left:9px; right:9px; bottom:9px;
+    border:1px solid rgba(212,175,55,0.25); pointer-events:none;
+  }
+  .contact-card .c-title{ font-family:var(--serif); font-size:1.7rem; color:var(--ink); font-style:italic; }
+  .contact-lines{ margin-top:28px; }
+  .cline{ margin-bottom:16px; }
+  .cline .k{ font-family:var(--deco); font-size:.7rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
+  .cline .v{ font-size:1.1rem; color:var(--ink); margin-top:2px; }
+  .cline .v a{ color:var(--gold-soft); text-decoration:none; border-bottom:1px solid rgba(212,175,55,0.4); padding-bottom:1px; }
+  .cline .v a:hover{ color:var(--gold); text-shadow:0 0 12px rgba(212,175,55,0.5); }
 
-    .entry-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 2px;
-    }
+  footer{
+    text-align:center; padding:40px 0 50px; color:var(--ink-soft);
+    font-size:.78rem; letter-spacing:.24em; text-transform:uppercase;
+    border-top:1px solid var(--rule); margin-top:40px; font-family:var(--deco);
+  }
+  footer .crest-s{ display:block; margin-bottom:14px; }
+  footer .crest-s svg{ width:30px; height:30px; }
 
-    .entry-title {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: #0f172a;
-    }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:none;} }
+  @keyframes shimmer{ 0%{background-position:-200% 0;} 100%{background-position:200% 0;} }
+  @keyframes pulseGlow{ 0%,100%{box-shadow:0 0 10px rgba(212,175,55,0.4);} 50%{box-shadow:0 0 22px rgba(212,175,55,0.85);} }
+  @keyframes spin{ to{ transform:rotate(360deg);} }
 
-    .entry-company {
-      font-weight: 600;
-      color: #2563eb;
-    }
+  .hero .crest{ opacity:0; animation:fadeUp 1.1s ease forwards; }
+  .monogram{ opacity:0; animation:fadeUp 1.1s .12s ease forwards; }
+  .hero .title{ opacity:0; animation:fadeUp 1s .28s ease forwards; }
+  .hero .est{ opacity:0; animation:fadeUp 1s .4s ease forwards; }
+  .hero-sub{ opacity:0; animation:fadeUp 1s .5s ease forwards; }
+  .hero-cta{ opacity:0; animation:fadeUp 1s .62s ease forwards; }
+  .hero .rays{ animation:spin 90s linear infinite; }
 
-    .entry-date {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #64748b;
-    }
+  .reveal{ opacity:0; transform:translateY(34px); transition:opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); will-change:opacity,transform; }
+  .reveal.in-view{ opacity:1; transform:none; }
+  .proj-grid .card{ transition-delay:var(--d, 0s); }
+  .skill{ transition-delay:var(--d, 0s); }
+  .skill .bar > i{ width:0; transition:width 1.3s cubic-bezier(.22,.61,.36,1); transition-delay:.25s; }
+  .skill.in-view .bar > i{ width:var(--w); }
 
-    .entry-location {
-      font-size: 12.5px;
-      color: #64748b;
-      margin-bottom: 5px;
-    }
+  .deco-rule::before,.deco-rule::after{
+    background-size:200% 100%;
+    animation:shimmer 4s ease-in-out infinite;
+  }
+  .diamond{ animation:pulseGlow 3.5s ease-in-out infinite; }
 
-    ul.entry-bullets {
-      padding-left: 18px;
-      font-size: 13px;
-      color: #334155;
-      margin-top: 4px;
-    }
+  @media (prefers-reduced-motion: reduce){
+    .reveal,.hero .crest,.monogram,.hero .title,.hero .est,.hero-sub,.hero-cta{ opacity:1 !important; transform:none !important; animation:none !important; }
+    .skill .bar > i{ width:var(--w) !important; transition:none !important; }
+  }
 
-    ul.entry-bullets li {
-      margin-bottom: 5px;
-      line-height: 1.5;
-    }
-
-    .skills-group {
-      margin-bottom: 8px;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .skills-group strong {
-      color: #0f172a;
-      font-weight: 600;
-    }
-
-    .skills-group span {
-      color: #334155;
-    }
-
-    .project-box {
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 13px 15px;
-      margin-bottom: 13px;
-      background: #fafafa;
-    }
-
-    .project-box:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 6px;
-    }
-
-    .project-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .project-action-links {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .project-btn-link {
-      display: inline-flex;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 600;
-      text-decoration: none;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .project-btn-live {
-      background: #2563eb;
-      color: #ffffff !important;
-    }
-
-    .project-btn-live:hover {
-      background: #1d4ed8;
-    }
-
-    .project-btn-code {
-      background: #ffffff;
-      color: #334155 !important;
-      border: 1px solid #cbd5e1;
-    }
-
-    .project-btn-code:hover {
-      background: #f1f5f9;
-    }
-
-    .project-badge {
-      font-size: 11px;
-      font-weight: 600;
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: #475569;
-      margin-bottom: 8px;
-      line-height: 1.5;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .tag {
-      background: #e2e8f0;
-      color: #334155;
-      font-size: 11.5px;
-      font-weight: 600;
-      padding: 2px 7px;
-      border-radius: 4px;
-    }
-
-    @media print {
-      body {
-        background: #ffffff;
-        padding: 0;
-      }
-      .resume-wrapper {
-        border: none;
-        box-shadow: none;
-        padding: 0;
-        max-width: 100%;
-      }
-      .action-bar {
-        display: none;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .resume-wrapper {
-        padding: 24px 16px;
-      }
-      h1.name {
-        font-size: 24px;
-      }
-      .contact-list {
-        flex-direction: column;
-        gap: 5px;
-      }
-      .entry-header {
-        flex-direction: column;
-      }
-      .project-top {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  @media(max-width:760px){
+    .nav{ flex-direction:column; gap:14px; text-align:center; }
+    nav a{ margin:0 10px; }
+    .hero{ padding-top:60px; }
+    .monogram{ font-size:2.9rem; }
+    .about-grid,.skill-grid,.proj-grid{ grid-template-columns:1fr; }
+    .facts{ border-left:none; padding-left:0; margin-top:10px; }
+    .container{ padding:0 22px; }
+    .exp-item{ padding:24px 22px; }
+  }
+</style>
 </head>
 <body>
 
-  <div class="resume-wrapper">
-    
-    <!-- Action Bar -->
-    <div class="action-bar">
-      <button class="print-btn" onclick="window.print()">
-        🖨️ Print / Save PDF
-      </button>
+<div class="wrap">
+
+  <!-- NAV -->
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">ARJIT<span class="dot">.</span>BHATNAGAR</a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#experience">Experience</a>
+        <a href="#portfolio">Work</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Header -->
-    <header>
-      <h1 class="name">Arjit Bhatnagar</h1>
-      <div class="headline">Software Engineer | Java, Spring Boot, Python Backend (FastAPI) & AI/ML Systems</div>
-      
-      <div class="contact-list">
-        <span>📍 Bareilly, Uttar Pradesh, India</span>
-        <span>✉️ <a href="mailto:arjitbhatnagar3@gmail.com">arjitbhatnagar3@gmail.com</a></span>
-        <span>📞 <a href="tel:+918354069981">+91 8354069981</a></span>
-        <span>🔗 <a href="https://github.com/arjitbhatnagar3-hue" target="_blank">github.com/arjitbhatnagar3-hue</a></span>
-        <span>🔗 <a href="https://www.linkedin.com/in/arjit-bhatnagar-7024b83b8" target="_blank">linkedin.com/in/arjit-bhatnagar</a></span>
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="rays"></div>
+      <div class="crest">
+        <svg viewBox="0 0 100 100" width="90" height="90">
+          <circle cx="50" cy="50" r="47" class="ring"/>
+          <circle cx="50" cy="50" r="41" class="ring2"/>
+          <circle cx="50" cy="50" r="35" class="ring2" stroke-dasharray="2 3"/>
+          <text x="50" y="63" text-anchor="middle" font-size="30">AB</text>
+        </svg>
       </div>
-    </header>
-
-    <!-- Summary -->
-    <section>
-      <h2 class="section-title">Professional Summary</h2>
-      <p class="summary">
-        Software Engineer specializing in <strong>scalable enterprise backends, secure RESTful APIs, and AI/ML systems</strong>. Proficient in engineering microservices with both <strong>Java (Spring Boot)</strong> and <strong>Python (FastAPI, Django)</strong>, coupled with data-driven pipelines utilizing <strong>LangChain, PyTorch, and SQL</strong>. Proven track record of designing secure JWT-based authentication layers, database object-relational mapping (Hibernate), and reducing query latency by 35%+.
+      <h1 class="monogram">Arjit <span>Bhatnagar</span></h1>
+      <p class="title">Software &amp; Backend Engineer</p>
+      <p class="est"><span class="rule"></span>Java · Spring Boot · Python · FastAPI · AI / ML<span class="rule"></span></p>
+      <p class="hero-sub">
+        I engineer scalable enterprise backends, secure RESTful APIs, and intelligent AI systems —
+        the quiet, rigorous craft of building software that performs at scale.
       </p>
-    </section>
-
-    <!-- Work Experience -->
-    <section>
-      <h2 class="section-title">Work Experience</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">Web Development & Backend Intern</span> &ndash; 
-            <span class="entry-company">Eway Financial Consultancy</span>
-          </div>
-          <span class="entry-date">Jul 2026 &ndash; Present</span>
-        </div>
-        <div class="entry-location">Lucknow, Uttar Pradesh, India &bull; On-site</div>
-        <ul class="entry-bullets">
-          <li>Architected and migrated legacy endpoints to scalable, high-throughput microservices utilizing **Java (Spring Boot)** and **Python (FastAPI)**, reducing server response times by **35%**.</li>
-          <li>Secured sensitive financial transaction layers by implementing token-based authorization protocols with **Spring Security** and JWT.</li>
-          <li>Optimized relational database interactions utilizing **Hibernate ORM / Spring Data JPA** and raw SQL queries over **50,000+ transaction logs**.</li>
-          <li>Automated analytical and financial data reporting pipelines with **Pandas and NumPy**, eliminating manual overhead by **40%**.</li>
-          <li>Integrated frontend components using **JavaScript (ES6+)** with backend authentication structures and server APIs.</li>
-        </ul>
-      </div>
-
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">Generative AI Engineer Intern</span> &ndash; 
-            <span class="entry-company">SkillSpardha</span>
-          </div>
-          <span class="entry-date">Jun 2026 &ndash; Jul 2026</span>
-        </div>
-        <div class="entry-location">Noida, Uttar Pradesh, India &bull; On-site</div>
-        <ul class="entry-bullets">
-          <li>Engineered end-to-end **Retrieval-Augmented Generation (RAG)** systems with **LangChain and PyTorch**, achieving **92%+ semantic retrieval accuracy**.</li>
-          <li>Structured document chunking, tokenization, and vector indexing into **Vector Databases (FAISS / ChromaDB)** over 2,000+ unstructured text files.</li>
-          <li>Implemented dynamic prompt engineering and few-shot templates, reducing LLM hallucination rates by **28%** and retrieval latency to **&lt;250ms**.</li>
-          <li>Preprocessed large multimodal datasets and benchmarked machine learning classification models using **Scikit-Learn and NumPy**.</li>
-        </ul>
+      <div class="hero-cta">
+        <a class="btn solid" href="#portfolio">View Work</a>
+        <a class="btn" href="#contact">Get in Touch</a>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section>
-      <h2 class="section-title">Technical Projects</h2>
+    <div class="deco-rule"><span class="diamond"></span></div>
 
-      <!-- Project: Spring Boot API -->
-      <div class="project-box">
-        <div class="project-top">
-          <span class="project-name">☕ Enterprise Backend Service &ndash; Secure REST API Architecture</span>
-          <div class="project-action-links">
-            <a href="https://github.com/arjitbhatnagar3-hue" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <p class="section-label reveal">Introducing</p>
+        <h2 class="section-title reveal">About</h2>
+        <div class="deco-rule"><span class="diamond" style="width:7px;height:7px;"></span></div>
+
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p class="dropcap">
+              Arjit Bhatnagar is a Software Engineer specialising in scalable enterprise backends,
+              secure RESTful APIs, and AI/ML systems. Proficient in engineering microservices with
+              both <strong style="color:var(--gold-soft);">Java (Spring Boot)</strong> and
+              <strong style="color:var(--gold-soft);">Python (FastAPI, Django)</strong>, with
+              hands-on experience building data-driven pipelines using LangChain, PyTorch, and SQL.
+            </p>
+            <p>
+              I have a proven record of designing JWT-based authentication layers, optimising
+              database ORMs with Hibernate, and reducing query latency by 35% and more. I believe
+              in engineering that is quiet, considered, and built to last.
+            </p>
+            <div class="signature">Arjit Bhatnagar</div>
+          </div>
+
+          <div class="facts reveal">
+            <div class="fact"><div class="k">Primary Craft</div><div class="v">Backend Engineering · Java · Python</div></div>
+            <div class="fact"><div class="k">Frameworks</div><div class="v">Spring Boot · FastAPI · Django</div></div>
+            <div class="fact"><div class="k">Specialty</div><div class="v">Secure APIs · Microservices · AI/ML</div></div>
+            <div class="fact"><div class="k">Location</div><div class="v">Bareilly, Uttar Pradesh, India</div></div>
           </div>
         </div>
-        <p class="project-desc">
-          Engineered a decoupled, scalable RESTful API backend using **Java 17 and Spring Boot**. Implemented token-based authentication using **Spring Security & JWT**, structured transactional database schemas with **PostgreSQL**, and integrated auto-generating **Swagger/OpenAPI** documentation for client integrations.
-        </p>
-        <div class="tech-tags">
-          <span class="tag">Java</span>
-          <span class="tag">Spring Boot</span>
-          <span class="tag">Spring Security</span>
-          <span class="tag">JPA / Hibernate</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Swagger</span>
-        </div>
-      </div>
-
-      <!-- Project 1: Movie Recommendation Engine -->
-      <div class="project-box">
-        <div class="project-top">
-          <span class="project-name">🎬 Movie Recommendation Engine &ndash; Asynchronous ML API</span>
-          <div class="project-action-links">
-            <a href="https://lnkd.in/g35339X8" target="_blank" class="project-btn-link project-btn-live">⚡ Live Demo ↗</a>
-            <a href="https://github.com/arjitbhatnagar3-hue/movie_recommendation_project/tree/merged-fastapi" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Built and deployed a real-time collaborative and content-based recommendation model processing **10,000+ title vectors** via Cosine Similarity. Integrated with an asynchronous **FastAPI backend** delivering sub-150ms recommendation inference.
-        </p>
-        <div class="tech-tags">
-          <span class="tag">FastAPI</span>
-          <span class="tag">Scikit-Learn</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Python</span>
-          <span class="tag">REST APIs</span>
-          <span class="tag">Production Deployment</span>
-        </div>
-      </div>
-
-      <!-- Project 2: Medical Chatbot RAG -->
-      <div class="project-box">
-        <div class="project-top">
-          <span class="project-name">🩺 Medical Domain Chatbot &ndash; Contextual RAG System</span>
-          <div class="project-action-links">
-            <a href="https://github.com/arjitbhatnagar3-hue/medical_chatbot" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Architected a domain-specific Q&A conversational AI utilizing **LangChain and Vector Databases**. Implemented contextual document retrieval to supply verified clinical documentation, cutting hallucinated medical outputs by **40%**.
-        </p>
-        <div class="tech-tags">
-          <span class="tag">LangChain</span>
-          <span class="tag">RAG Architecture</span>
-          <span class="tag">Vector Databases</span>
-          <span class="tag">FastAPI / Flask</span>
-          <span class="tag">Embeddings</span>
-          <span class="tag">Python</span>
-        </div>
-      </div>
-
-      <!-- Project 3: Meta Agent AI Automation -->
-      <div class="project-box">
-        <div class="project-top">
-          <span class="project-name">🤖 Meta Agent &ndash; Autonomous Multi-Agent AI Automation</span>
-          <div class="project-action-links">
-            <span class="project-badge">In Active Development</span>
-            <a href="https://github.com/arjitbhatnagar3-hue" target="_blank" class="project-btn-link project-btn-code">GitHub ↗</a>
-          </div>
-        </div>
-        <p class="project-desc">
-          Designing an autonomous multi-agent framework capable of self-reflection, tool invocation, and dynamic API execution loops, automating repetitive workflows and reducing execution runtimes by **60%**.
-        </p>
-        <div class="tech-tags">
-          <span class="tag">AI Automation</span>
-          <span class="tag">Multi-Agent Systems</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">Tool Calling</span>
-          <span class="tag">Python</span>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- Technical Skills -->
-    <section>
-      <h2 class="section-title">Technical Skills</h2>
-      
-      <div class="skills-group">
-        <strong>Languages:</strong> 
-        <span>Java (Core & OOPs), Python, JavaScript (ES6+), SQL, HTML5, CSS3</span>
-      </div>
-
-      <div class="skills-group">
-        <strong>Backend & Web Frameworks:</strong> 
-        <span>Spring Boot, Spring Data JPA, Hibernate ORM, FastAPI, Django, Flask, React.js, Asynchronous REST APIs, Microservices</span>
-      </div>
-
-      <div class="skills-group">
-        <strong>AI, ML & Generative AI:</strong> 
-        <span>LangChain, RAG Pipelines, Vector Databases (FAISS, ChromaDB, Pinecone), Multi-Agent Automation, PyTorch, Scikit-Learn (sklearn), NumPy, Pandas, Embeddings</span>
-      </div>
-
-      <div class="skills-group">
-        <strong>Databases, Tools & DevOps:</strong> 
-        <span>PostgreSQL, MySQL, Git, GitHub, Maven, Postman, Swagger/OpenAPI, Docker Basics</span>
-      </div>
-
-      <div class="skills-group">
-        <strong>Core Computer Science:</strong> 
-        <span>Object-Oriented Programming (OOPs), Operating Systems (OS), Database Management Systems (DBMS), Data Structures & Algorithms (DSA), System Design Basics</span>
       </div>
     </section>
 
-    <!-- Education -->
-    <section>
-      <h2 class="section-title">Education</h2>
-      <div class="entry">
-        <div class="entry-header">
-          <div>
-            <span class="entry-title">Bachelor of Technology (B.Tech) &ndash; Computer Science & Engineering</span>
-            <div class="entry-company">Shri Ram Murti Smarak (SRMS) Institutions</div>
+    <!-- EXPERTISE -->
+    <section id="expertise" style="background:var(--bg-deep); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+      <div class="container">
+        <p class="section-label reveal">Capabilities</p>
+        <h2 class="section-title reveal">Expertise</h2>
+        <div class="deco-rule"><span class="diamond" style="width:7px;height:7px;"></span></div>
+
+        <div class="skill-grid">
+          <div class="skill reveal">
+            <div class="name"><span class="n">Java &amp; Spring Boot</span><span class="pct">92</span></div>
+            <div class="bar"><i style="--w:92%"></i></div>
           </div>
-          <span class="entry-date">Oct 2023 &ndash; Present</span>
+          <div class="skill reveal">
+            <div class="name"><span class="n">Python &amp; FastAPI</span><span class="pct">95</span></div>
+            <div class="bar"><i style="--w:95%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="name"><span class="n">REST APIs &amp; Microservices</span><span class="pct">90</span></div>
+            <div class="bar"><i style="--w:90%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="name"><span class="n">AI / ML &amp; LangChain (RAG)</span><span class="pct">92</span></div>
+            <div class="bar"><i style="--w:92%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="name"><span class="n">SQL &amp; Databases</span><span class="pct">88</span></div>
+            <div class="bar"><i style="--w:88%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="name"><span class="n">Spring Security &amp; JWT</span><span class="pct">85</span></div>
+            <div class="bar"><i style="--w:85%"></i></div>
+          </div>
         </div>
-        <div class="entry-location">Bareilly, Uttar Pradesh, India</div>
-        <ul class="entry-bullets">
-          <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Database Management Systems (DBMS), Operating Systems, Object-Oriented Software Design, Machine Learning.</li>
-        </ul>
+
+        <div class="skill-stack">
+          <div class="stack-block reveal">
+            <span class="stack-k">Languages</span>
+            <div class="stack-v">
+              <span class="chip">Java</span><span class="chip">Python</span><span class="chip">JavaScript (ES6+)</span><span class="chip">SQL</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+            </div>
+          </div>
+          <div class="stack-block reveal">
+            <span class="stack-k">Backend &amp; Web Frameworks</span>
+            <div class="stack-v">
+              <span class="chip">Spring Boot</span><span class="chip">Spring Data JPA</span><span class="chip">Hibernate ORM</span><span class="chip">FastAPI</span><span class="chip">Django</span><span class="chip">Flask</span><span class="chip">React.js</span><span class="chip">Microservices</span>
+            </div>
+          </div>
+          <div class="stack-block reveal">
+            <span class="stack-k">AI, ML &amp; Generative AI</span>
+            <div class="stack-v">
+              <span class="chip">LangChain</span><span class="chip">RAG Pipelines</span><span class="chip">FAISS</span><span class="chip">ChromaDB</span><span class="chip">Pinecone</span><span class="chip">PyTorch</span><span class="chip">Scikit-Learn</span><span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">Embeddings</span>
+            </div>
+          </div>
+          <div class="stack-block reveal">
+            <span class="stack-k">Databases, Tools &amp; DevOps</span>
+            <div class="stack-v">
+              <span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Git</span><span class="chip">GitHub</span><span class="chip">Maven</span><span class="chip">Postman</span><span class="chip">Swagger / OpenAPI</span><span class="chip">Docker</span>
+            </div>
+          </div>
+          <div class="stack-block reveal">
+            <span class="stack-k">Core Computer Science</span>
+            <div class="stack-v">
+              <span class="chip">OOP</span><span class="chip">Operating Systems</span><span class="chip">DBMS</span><span class="chip">DSA</span><span class="chip">System Design</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="tagline reveal">— I own the full arc: from architecture and data, to API, to interface. —</p>
       </div>
     </section>
 
-  </div>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="container">
+        <p class="section-label reveal">Chronicle</p>
+        <h2 class="section-title reveal">Experience</h2>
+        <div class="deco-rule"><span class="diamond" style="width:7px;height:7px;"></span></div>
+
+        <div class="exp-item reveal">
+          <div class="exp-head">
+            <div class="exp-role">Web Development &amp; Backend Intern <span class="co">— Eway Financial Consultancy</span></div>
+            <div class="exp-date">Jul 2026 — Present</div>
+          </div>
+          <div class="exp-loc">Lucknow, Uttar Pradesh · On-site</div>
+          <ul class="exp-list">
+            <li>Architected and migrated legacy endpoints to scalable, high-throughput microservices using <b>Java (Spring Boot)</b> and <b>Python (FastAPI)</b>, reducing server response times by <b>35%</b>.</li>
+            <li>Secured sensitive financial transaction layers by implementing token-based authorisation with <b>Spring Security</b> and <b>JWT</b>.</li>
+            <li>Optimised relational database interactions using <b>Hibernate ORM / Spring Data JPA</b> and raw SQL across <b>50,000+ transaction logs</b>.</li>
+            <li>Automated analytical and financial reporting pipelines with <b>Pandas</b> and <b>NumPy</b>, eliminating manual overhead by <b>40%</b>.</li>
+            <li>Integrated frontend components with <b>JavaScript (ES6+)</b> against backend authentication structures and server APIs.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-head">
+            <div class="exp-role">Generative AI Engineer Intern <span class="co">— SkillSpardha</span></div>
+            <div class="exp-date">Jun 2026 — Jul 2026</div>
+          </div>
+          <div class="exp-loc">Noida, Uttar Pradesh · On-site</div>
+          <ul class="exp-list">
+            <li>Engineered end-to-end <b>Retrieval-Augmented Generation (RAG)</b> systems with <b>LangChain</b> and <b>PyTorch</b>, achieving <b>92%+ semantic retrieval accuracy</b>.</li>
+            <li>Structured document chunking, tokenisation, and vector indexing into <b>FAISS / ChromaDB</b> across <b>2,000+</b> unstructured text files.</li>
+            <li>Implemented dynamic prompt engineering and few-shot templates, reducing LLM hallucination by <b>28%</b> and retrieval latency to <b>&lt;250ms</b>.</li>
+            <li>Preprocessed multimodal datasets and benchmarked classification models using <b>Scikit-Learn</b> and <b>NumPy</b>.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="portfolio" style="background:var(--bg-deep); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+      <div class="container">
+        <p class="section-label reveal">Selected Works</p>
+        <h2 class="section-title reveal">Portfolio</h2>
+        <p class="section-intro reveal">A curated selection of backend and AI engineering projects — each built end-to-end, from architecture to deployment.</p>
+
+        <div class="proj-grid">
+
+          <div class="card reveal">
+            <div class="cat">Backend · Java · REST</div>
+            <h3>Enterprise Backend Service</h3>
+            <p>A decoupled, scalable RESTful API backend engineered with <b>Java 17</b> and <b>Spring Boot</b>. Token-based authentication via <b>Spring Security &amp; JWT</b>, transactional schemas on <b>PostgreSQL</b>, and auto-generated <b>Swagger / OpenAPI</b> documentation for client integrations.</p>
+            <div class="tags">
+              <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Security</span><span class="tag">JPA / Hibernate</span><span class="tag">PostgreSQL</span><span class="tag">Swagger</span>
+            </div>
+            <div class="card-links">
+              <a class="link" href="https://github.com/arjitbhatnagar3-hue" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="cat">Machine Learning · FastAPI</div>
+            <h3>Movie Recommendation Engine</h3>
+            <p>A real-time collaborative and content-based recommendation model processing <b>10,000+ title vectors</b> via Cosine Similarity. Integrated with an asynchronous <b>FastAPI</b> backend delivering <b>sub-150ms</b> recommendation inference in production.</p>
+            <div class="tags">
+              <span class="tag">FastAPI</span><span class="tag">Scikit-Learn</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Python</span><span class="tag">REST</span>
+            </div>
+            <div class="card-links">
+              <a class="link" href="https://lnkd.in/g35339X8" target="_blank" rel="noopener">Live Demo →</a>
+              <a class="link" href="https://github.com/arjitbhatnagar3-hue/movie_recommendation_project/tree/merged-fastapi" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="cat">RAG · Conversational AI</div>
+            <h3>Medical Domain Chatbot</h3>
+            <p>A domain-specific Q&amp;A conversational AI utilising <b>LangChain</b> and <b>Vector Databases</b>. Contextual document retrieval supplies verified clinical documentation, cutting hallucinated medical outputs by <b>40%</b>.</p>
+            <div class="tags">
+              <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Vector DBs</span><span class="tag">FastAPI / Flask</span><span class="tag">Embeddings</span>
+            </div>
+            <div class="card-links">
+              <a class="link" href="https://github.com/arjitbhatnagar3-hue/medical_chatbot" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="cat">Multi-Agent · Autonomous AI</div>
+            <h3>Meta Agent — Autonomous Automation
+              <span class="badge-dev">In Development</span>
+            </h3>
+            <p>An autonomous multi-agent framework capable of self-reflection, tool invocation, and dynamic API execution loops — automating repetitive workflows and reducing execution runtimes by an estimated <b>60%</b>.</p>
+            <div class="tags">
+              <span class="tag">Multi-Agent</span><span class="tag">LangChain</span><span class="tag">Tool Calling</span><span class="tag">Automation</span><span class="tag">Python</span>
+            </div>
+            <div class="card-links">
+              <a class="link" href="https://github.com/arjitbhatnagar3-hue" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="container">
+        <p class="section-label reveal">Formation</p>
+        <h2 class="section-title reveal">Education</h2>
+        <div class="deco-rule"><span class="diamond" style="width:7px;height:7px;"></span></div>
+
+        <div class="edu-card reveal">
+          <div class="edu-head">
+            <div>
+              <div class="edu-degree">Bachelor of Technology — Computer Science &amp; Engineering</div>
+              <div class="edu-inst">Shri Ram Murti Smarak (SRMS) Institutions</div>
+            </div>
+            <div class="edu-date">Oct 2023 — Present</div>
+          </div>
+          <div class="edu-loc">Bareilly, Uttar Pradesh, India</div>
+          <p><b>Relevant Coursework:</b> Data Structures &amp; Algorithms, Database Management Systems (DBMS), Operating Systems, Object-Oriented Software Design, Machine Learning.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="background:var(--bg-deep); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);">
+      <div class="container">
+        <p class="section-label reveal">Correspondence</p>
+        <h2 class="section-title reveal">Contact</h2>
+        <div class="deco-rule"><span class="diamond" style="width:7px;height:7px;"></span></div>
+
+        <div class="contact-card reveal">
+          <div class="c-title">Enquiries are welcomed.</div>
+          <div class="contact-lines">
+            <div class="cline"><div class="k">Email</div><div class="v"><a href="mailto:arjitbhatnagar3@gmail.com">arjitbhatnagar3@gmail.com</a></div></div>
+            <div class="cline"><div class="k">Telephone</div><div class="v"><a href="tel:+918354069981">+91 83540 69981</a></div></div>
+            <div class="cline"><div class="k">Location</div><div class="v">Bareilly, Uttar Pradesh, India</div></div>
+            <div class="cline"><div class="k">LinkedIn</div><div class="v"><a href="https://www.linkedin.com/in/arjit-bhatnagar-7024b83b8" target="_blank" rel="noopener">linkedin.com/in/arjit-bhatnagar</a></div></div>
+            <div class="cline"><div class="k">GitHub</div><div class="v"><a href="https://github.com/arjitbhatnagar3-hue" target="_blank" rel="noopener">github.com/arjitbhatnagar3-hue</a></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="crest-s">
+      <svg viewBox="0 0 100 100" width="30" height="30">
+        <circle cx="50" cy="50" r="46" stroke="#D4AF37" stroke-width="1.4" fill="none"/>
+        <text x="50" y="62" text-anchor="middle" font-size="28" font-family="Cinzel, serif" fill="#D4AF37">AB</text>
+      </svg>
+    </span>
+    Arjit Bhatnagar · Software &amp; Backend Engineer
+    <br/>MMXXVI · Crafted with restraint
+  </footer>
+
+</div>
+
+<script>
+  (function(){
+    function stagger(group){
+      var items = document.querySelectorAll(group);
+      items.forEach(function(el, i){
+        var d = Math.min(i * 130, 600);
+        el.style.setProperty('--d', d + 'ms');
+      });
+    }
+    stagger('.proj-grid .card');
+    stagger('.skill');
+
+    var revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting){
+            e.target.classList.add('in-view');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function(el){ io.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('in-view'); });
+    }
+  })();
+</script>
 
 </body>
 </html>
